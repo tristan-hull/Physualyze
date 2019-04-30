@@ -8,7 +8,9 @@
     <script src="p5.dom.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script id = "pendulumSketch" src="Pendulum.js"></script>
-    <script id = "collisionSketch" src="Collision.js"></script>
+    <script id = "collisionSketch" src="ElasticCollision.js"></script>
+    <script id = "inelasticCollisionSketch" src="InelasticCollision.js"></script>
+    <script id = "control" src = "Control.js"></script>
 
   </head>
 
@@ -20,11 +22,14 @@
     <div id='content'>
       <div id='buttonFrame'>
         
-        <button class='sim' id="sim1" onclick="collision.delete();collision.clear();pendulum.load();">
+        <button class='sim' id="sim1" onclick="resetAll();pendulum.load();">
           <span> Pendulum </span>
         </button>
-        <button class='sim' id="sim2" onclick="pendulum.delete();pendulum.clear();collision.load();">
-          <span> Horizontal Collision </span>
+        <button class='sim' id="sim2" onclick="resetAll();collision.load();">
+          <span> Elastic Collision </span>
+        </button>        
+        <button class='sim' id="sim3" onclick="resetAll();inelasticCollision.load();">
+          <span> Inelastic Collision </span>
         </button>
       </div>
 

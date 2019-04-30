@@ -74,7 +74,7 @@ var sketch = function(p) {
         p.blockLeft = new Block(p.createVector(p.width/ 4, 2.5 * p.height / 4), p.leftVelocitySlider, p.leftMassSlider, 200);
         p.blockRight = new Block(p.createVector(3 * p.width / 4, 2.5 * p.height / 4), p.rightVelocitySlider, collision.rightMassSlider, 100);
         p.started = true;
-        p.startButton.mousePressed(restart);
+        p.startButton.mousePressed(p.restart);
     }
 
     p.restart = function() {
@@ -82,6 +82,45 @@ var sketch = function(p) {
         p.blockLeft = new Block(p.createVector(p.width/ 4, 2.5 * p.height / 4), p.leftVelocitySlider, p.leftMassSlider, 200);
         p.blockRight = new Block(p.createVector(3 * p.width / 4, 2.5 * p.height / 4), p.rightVelocitySlider, p.rightMassSlider, 100);
         p.startButton.mousePressed(p.start);
+    }
+
+    p.checkOverlap = function() {
+        if (obj1.position.x + obj1.size.x / 2 > obj2.position.x - obj2.size.x / 2)
+        {
+            old1Vel = obj1.velocity;
+            old2Vel = obj2.velocity;
+            obj1.velocity = (((obj1.mass - obj2.mass) / (obj1.mass + obj2.mass)) * old1Vel) + (((2 * obj2.mass) / (obj1.mass + obj2.mass)) * old2Vel);
+            obj2.velocity = (((2 * obj1.mass) / (obj1.mass + obj2.mass)) * old1Vel) + (((obj2.mass - obj1.mass) / (obj1.mass + obj2.mass)) * old2Vel);
+        }
+    }
+
+    function Block(startPosition, velocitySlider, massSlider, color) {
+        this.position = startPosition;
+        this.velocity = velocitySlider.value();
+        this.mass = massSlider.value();
+        this.size = p.createVector(this.mass / 8, this.mass / 8)
+        this.color = color;
+
+
+        this.move = function() {
+            this.update();
+            this.display();
+        };
+    
+        this.update = function() {
+            if (p.started) {
+                this.position.add(this.velocity);
+            }
+            this.mass = massSlider.value();
+            this.size = p.createVector(this.mass / 8, this.mass / 8);
+        };
+
+        this.display = function() {
+            p.strokeWeight(2);    // Thickness 2
+            p.stroke(color);        // White line
+            p.fill(color)
+            p.rect(this.position.x, this.position.y - this.size.y / 2, this.size.x, this.size.y);
+        };
     }
 } 
 
