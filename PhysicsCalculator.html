@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Physualzye</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <script src="p5.dom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script id = "pendulumSketch" src="Pendulum.js"></script>
+    <script id = "collisionSketch" src="Collision.js"></script>
+
+  </head>
+
+  <div class="header">
+      <h1>Physualyze</h1>
+  </div>
+
+  <body>
+    <div id='content'>
+      <div id='buttonFrame'>
+        
+        <button class='sim' id="sim1" onclick="collision.delete();collision.clear();pendulum.load();">
+          <span> Pendulum </span>
+        </button>
+        <button class='sim' id="sim2" onclick="pendulum.delete();pendulum.clear();collision.load();">
+          <span> Horizontal Collision </span>
+        </button>
+      </div>
+
+      <div id='physicsFrame'>
+          <div id='sketch'>
+          </div>
+          <div id='variables'>
+
+          </div>
+        </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,42 @@
+.sim{
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(78,78,161,1) 0%, rgba(0,212,255,1) 100%);
+width: 30%;
+height: 200px;
+border: none;
+border-radius: 20px;
+margin: 20px;
+}
+
+#content{
+    position: relative;
+}
+
+#buttonFrame{
+    position: absolute;
+    width: 100%;
+}
+
+#physicsFrame{
+    position: absolute;
+    margin: 0px 0px 0px 600px;
+    width: 50%;
+}
+
+#variables{
+    position: absolute;
+}
+
+.header {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(90deg,#FF512F 0%, #DD2476 100%);
+    font-size: 20px;
+}
+
+button{
+    display: block;
+}
+
+body{
+    background: #1D1E1B
+}
