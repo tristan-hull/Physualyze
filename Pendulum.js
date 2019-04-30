@@ -14,6 +14,9 @@ var sketch = function(p) {
     p.massSlider = p.createSlider(10, 100, 55);
     p.massSlider.position(p.sliderPosition.x + 175, p.sliderPosition.y)  
     p.gravitySlider = p.createSlider(.01, 2, .9);
+    p.gravitySlider.elt.step = 0.001;    
+    p.massSlider.elt.step = 0.001;    
+    p.lenSlider.elt.step = 0.001;    
     p.gravitySlider.position(p.sliderPosition.x + 350, p.sliderPosition.y)
     p.pendulum = new Pendulum(p.createVector(p.width/2,0));
   }
