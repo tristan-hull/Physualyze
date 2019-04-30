@@ -44,7 +44,7 @@ var sketch = function(q) {
             q.background(51);
             q.blockLeft.move();
             q.blockRight.move();
-            checkOverlap(q.blockLeft, q.blockRight);
+            q.checkOverlap(q.blockLeft, q.blockRight);
         }
     }
 
