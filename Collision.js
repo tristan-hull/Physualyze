@@ -29,8 +29,8 @@ var sketch = function(p) {
         p.rightVelocitySlider.position(p.sliderPosition.x + 200, p.sliderPosition.y);
         
     
-        p.leftMassSlider = p.createSlider(0, 4000, 1000);
-        p.rightMassSlider = p.createSlider(0, 4000, 1000);
+        p.leftMassSlider = p.createSlider(0, 3000, 1000);
+        p.rightMassSlider = p.createSlider(0, 3000, 1000);
         p.leftMassSlider.position(p.sliderPosition.x, p.sliderPosition.y + 50);
         p.rightMassSlider.position(p.sliderPosition.x + 200, p.sliderPosition.y + 50);
     
